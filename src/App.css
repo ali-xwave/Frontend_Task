@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+.bg {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../src/Images/k.jpg");
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.family{
+    font-family: 'sans-serif';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-item a{
+    color: #000;
+    font-size: 20px;
+    font-family: 'sans-serif';
+    text-decoration: none;
+    padding: 0 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-item a:hover{
+    color: red;
 }
 
-.App-link {
-  color: #61dafb;
+.col-md-4 img{
+    width: 390px;
+    height: 250px;
+    padding: 10px;
+}
+ul li {
+    list-style-type: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media(max-width: 576px){
+    .nav-item a{
+        padding: 0 ;
+    }
+    .bg {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../src/Images/k.jpg");
+        background-size: cover;
+        height: 40vh;
+        width: 100%;
+    }
+    .col-md-4 img{
+        width: 100%;
+        /* height: 150px; */
+    }
+}
+
+@media(min-width: 577px) and (max-width: 768px){
+    .nav-item a{
+        padding: 0 ;
+    }
+    .bg {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../src/Images/k.jpg");
+        background-size: cover;
+        height: 30vh;
+        width: 100%;
+    }
+    .col-md-4 img{
+        width: 110%;
+        /* height: 150px; */
+    }
+}
+@media(min-width: 769px) and (max-width: 992px){
+    .nav-item a{
+        padding: 0 ;
+    }
+    .bg {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../src/Images/k.jpg");
+        background-size: cover;
+        height: 30vh;
+        width: 100%;
+    }
+    .col-md-4 img{
+        width: 110%;
+        /* height: 150px; */
+    }
 }
