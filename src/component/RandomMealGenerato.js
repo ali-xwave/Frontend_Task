@@ -1,31 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const RandomMealGenerator = () => {
+const RandomMealGenerator = ({ addToFavorites }) => {
   const [randomMeal, setRandomMeal] = useState(null);
-
-  const generateRandomMeal = async () => {
-    const response = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php');
-    setRandomMeal(response.data.meals[0]);
-  };
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    generateRandomMeal();
+    const fetchRandomMeal = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await axios.get(
+          "https://www.themealdb.com/api/json/v1/1/random.php"
+        );
+        setRandomMeal(response.data.meals[0]);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchRandomMeal();
   }, []);
 
+  const handleFavorite = () => {
+    if (randomMeal) {
+      addToFavorites(randomMeal);
+    }
+  };
+
   return (
-    <div>
-      <h2>Random Meal Generator</h2>
-      {randomMeal ? (
-        <div>
-          <img src={randomMeal.strMealThumb} alt={randomMeal.strMeal} />
-          <h3>{randomMeal.strMeal}</h3>
-          {/* Add buttons or functionality to handle favoriting the random meal */}
+    <div className="container-fluid ">
+      <h1>Random Meal Generator</h1>
+      {isLoading ? (
+        <p>Generating a random meal...</p>
+      ) : error ? (
+        <p>Error fetching random meal: {error.message}</p>
+      ) : randomMeal ? (
+        <div className="row">
+          <div className="col-lg-12 col-12 col-md-12">
+            <img
+              src={randomMeal.strMealThumb}
+              alt={randomMeal.strMeal}
+              width="100%"
+              height="450px"
+            />
+            <h2>{randomMeal.strMeal}</h2>
+            <p>{randomMeal.strInstructions}</p>
+            <button
+              className="border-0 rounded-pill bg-primary text-white px-4 py-2"
+              onClick={handleFavorite}
+            >
+              Add to Favorites
+            </button>
+          </div>
         </div>
       ) : (
-        <p>Generating a random meal...</p>
+        <p>No random meal found.</p>
       )}
-      <button onClick={generateRandomMeal}>Generate Another Random Meal</button>
     </div>
   );
 };

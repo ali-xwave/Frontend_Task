@@ -2,11 +2,12 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div>
-      <h2>About Me</h2>
+    <div className='bg-danger-subtle A'>
+      <h1>About Me</h1>
       <p>
-        {/* Add your personal information and comments here. */}
-        Write a few sentences about yourself and your interests in cooking or food. You can also mention what inspired you to create this MealTime application.
+        Hello Asghar, I am a passionate developer who enjoys creating user-friendly and interactive applications.
+        MealTime is a project I built to explore the `themealdb.com` API and provide a fun way to
+        discover new recipes. Feel free ,to reach out if you have any feedback or suggestions!
       </p>
     </div>
   );

@@ -1,13 +1,22 @@
 import React from "react";
-const Home = () => {
+import { Link } from "react-router-dom";
+
+const Home = ({ addToFavorites, favorites }) => {
   return (
-    <div className="bg">
-      <div className="position-absolute top-50 start-50 translate-middle text-center text-white py-5">
-        <h1 className="position-relative">Welcome to MealTime!</h1>
+    <div className="bg position-relative">
+      <div className="position-absolute start-50 top-50 translate-middle text-center text-white">
+        <h1>Welcome to MealTime!</h1>
         <p>
           Explore delicious recipes through our categories or generate random
           meal suggestions.
         </p>
+        <div className="actions ">
+          <Link to="/menu">Explore Menu</Link>
+          <Link to="/favorites" className="px-2">
+            View Favorites ({favorites.length})
+          </Link>
+          <Link to="/generator">Generate Random Meal</Link>
+        </div>
       </div>
     </div>
   );

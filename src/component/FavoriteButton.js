@@ -21,7 +21,6 @@ const FavoriteButton = () => {
         <ul>
           {favorites.map((mealId) => (
             <li key={mealId}>
-              {/* Replace with actual meal details retrieval logic */}
               <p>Meal Name (replace with actual name based on mealId)</p>
               <button onClick={() => removeFavorite(mealId)}>Remove from Favorites</button>
             </li>

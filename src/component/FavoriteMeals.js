@@ -1,34 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 
-const FavoriteMeals = () => {
-  const [favorites, setFavorites] = useState([]);
-
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem('favorites') || '[]';
-    setFavorites(JSON.parse(storedFavorites));
-  }, []);
-
-  const removeFavorite = (mealId) => {
-    const updatedFavorites = favorites.filter((id) => id !== mealId);
-    setFavorites(updatedFavorites);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-  };
-
+const FavoriteMeals = ({ favorites, removeFromFavorites }) => {
   return (
-    <div>
-      <h2>My Favorite Meals</h2>
-      {favorites.length > 0 ? (
-        <ul>
-          {favorites.map((mealId) => (
-            <li key={mealId}>
-              {/* Replace with actual meal details retrieval logic */}
-              <p>Meal Name (replace with actual name based on mealId)</p>
-              <button onClick={() => removeFavorite(mealId)}>Remove from Favorites</button>
-            </li>
-          ))}
-        </ul>
+    <div className="container-fluid">
+      <h1>My Favorite Meals</h1>
+      {favorites.length === 0 ? (
+        <p>You haven't added any favorites yet!</p>
       ) : (
-        <p>You don't have any favorite meals yet!</p>
+        <div className="row">
+          <div className="col-lg-12 col-12 col-md-12">
+            {favorites.map((meal) => (
+              <p key={meal.idMeal} className="F">
+                <img src={meal.strMealThumb} alt={meal.strMeal} />
+                <h3>{meal.strMeal}</h3>
+                <button
+                  onClick={() => removeFromFavorites(meal.idMeal)}
+                  className="border-0 rounded-pill bg-primary text-white px-4 py-2"
+                >
+                  Remove from Favorites
+                </button>
+              </p>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
