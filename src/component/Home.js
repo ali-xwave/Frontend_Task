@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = ({ addToFavorites, favorites }) => {
   return (
     <div className="bg position-relative">
-      <div className="position-absolute start-50 top-50 translate-middle text-center text-white">
+      <div className="position-absolute start-50 top-50 translate-middle text-center text-white H">
         <h1>Welcome to MealTime!</h1>
         <p>
           Explore delicious recipes through our categories or generate random

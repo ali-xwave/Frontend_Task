@@ -56,7 +56,7 @@ ul li {
     .bg {
         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../src/Images/k.jpg");
         background-size: cover;
-        height: 40vh;
+        height: 70vh;
         width: 100%;
     }
     .col-md-4 img{
@@ -66,13 +66,19 @@ ul li {
 }
 
 @media(min-width: 577px) and (max-width: 768px){
+    .H h1{
+        font-size: 50px;
+    }
+    .H p{
+        font-size: 30px;
+    }
     .nav-item a{
         padding: 0 ;
     }
     .bg {
         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../src/Images/k.jpg");
         background-size: cover;
-        height: 30vh;
+        height: 90vh;
         width: 100%;
     }
     .col-md-4 img{
@@ -81,13 +87,19 @@ ul li {
     }
 }
 @media(min-width: 769px) and (max-width: 992px){
+    .H h1{
+        font-size: 50px;
+    }
+    .H p{
+        font-size: 30px;
+    }
     .nav-item a{
         padding: 0 ;
     }
     .bg {
         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../src/Images/k.jpg");
         background-size: cover;
-        height: 30vh;
+        height: 90vh;
         width: 100%;
     }
     .col-md-4 img{
